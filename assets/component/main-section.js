@@ -14,14 +14,14 @@ export default class MainSection extends Component {
   render() {
     return (
       <section className="main">
-				<input className="toggle-all" type="checkbox" />
-				<label htmlFor="toggle-all">Mark all as complete</label>
+        <input className="toggle-all" type="checkbox" />
+        <label htmlFor="toggle-all">Mark all as complete</label>
 
-				<ul className="todo-list">
-          {this.props.data.map((v, k) => 
+        <ul className="todo-list">
+          {this.props.data.map((v, k) =>
             <li key={v.get('id')}>
               <div className="view">
-                <input className="toggle" 
+                <input className="toggle"
                        type="checkbox"
                        value={v.get('done')}
                        onChange={() => this.props.onChange(k)}/>
@@ -31,7 +31,7 @@ export default class MainSection extends Component {
             </li>
           )}
         </ul>
-			</section>
+      </section>
     );
   }
 }

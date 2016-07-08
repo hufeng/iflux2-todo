@@ -15,14 +15,14 @@ export default class Header extends Component {
   render() {
     return (
       <header class="header">
-				<h1>todos</h1>
-				<input value={this.props.value} 
+        <h1>todos</h1>
+        <input value={this.props.value}
                className="new-todo"
                onKeyDown={this._handleKeyDown}
                onChange={this._handleChange}
-               placeholder="What needs to be done?" 
+               placeholder="What needs to be done?"
                autofocus />
-			</header>
+      </header>
     );
   }
 
