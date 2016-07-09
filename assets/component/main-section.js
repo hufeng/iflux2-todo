@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {List} from 'immutable'
-import PureRender from 'pure-render'
+import PureRender from 'qm-pure-render'
 const noop = () => {}
 
 
