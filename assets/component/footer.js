@@ -1,21 +1,22 @@
 import React, {Component} from 'react';
-import PureRender from 'qm-pure-render'
+import {Relax} from 'iflux2'
+import {countQL} from '../ql'
 const noop = () => {}
 
 
-@PureRender
+@Relax
 export default class Footer extends Component {
   static defaultProps = {
-    onChangeFilter: noop,
+    changeFilter: noop,
+    clearCompleted: noop,
     filterStatus: '',
-    count: 0
+    count: countQL
   };
 
-
+   
   render() {
-    const {onChangeFilter, filterStatus, count} = this.props
+    const {changeFilter, filterStatus, count, clearCompleted} = this.props
     let countText = ''
-    console.log(count)
 
     if (count > 1) {
       countText = `${count} items left`
@@ -30,26 +31,27 @@ export default class Footer extends Component {
           <li>
             <a href="javascript:;"
               className={"" === filterStatus ? 'selected' : ''}
-              onClick={() => onChangeFilter('')}>
+              onClick={() => changeFilter('')}>
               All
             </a>
           </li>
           <li>
             <a href="javascript:;"
               className={"active" === filterStatus ? 'selected' : ''}
-              onClick={() => onChangeFilter('active')}>
+              onClick={() => changeFilter('active')}>
               Active
             </a>
           </li>
           <li>
             <a href="javacript:;"
               className={'completed' === filterStatus ? 'selected' : ''}
-              onClick={() => onChangeFilter('completed')}>
+              onClick={() => changeFilter('completed')}>
               Completed
             </a>
           </li>
         </ul>
-        <button className="clear-completed">Clear completed</button>
+        <button className="clear-completed"
+                onClick={clearCompleted}>Clear completed</button>
       </footer>
     );
   }

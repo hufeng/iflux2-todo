@@ -28,4 +28,24 @@ export default class TodoActor extends Actor {
       return !done
     })
   }
+
+
+  @Action('destroy')
+  destroy(state, index) {
+    return state.deleteIn(['todo', index])
+  }
+
+
+  @Action('toggleAll')
+  toggleAll(state, checked) {
+    return state.update('todo', (todo) => todo.map(v => v.set('done', checked)))
+  }
+
+
+  @Action('clearCompleted')
+  clearCompleted(state) {
+    return state.update('todo', (todo) => {
+      return todo.filter(v => !v.get('done'))
+    })
+  }
 }

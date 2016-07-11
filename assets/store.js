@@ -9,7 +9,7 @@ export default class AppStore extends Store {
     return [
       new TextActor,
       new TodoActor,
-      new FilterActor 
+      new FilterActor
     ];
   }
 
@@ -22,7 +22,6 @@ export default class AppStore extends Store {
 
 //;;;;;;;;;;;;;action;;;;;;;;;;;;;;;;;;;;;;;
   changeValue = (value) => {
-    console.log('hh');
     this.dispatch('changeValue', value);
   };
 
@@ -37,8 +36,22 @@ export default class AppStore extends Store {
     this.dispatch('filter', status)
   };
 
+
   toggle = (index) => {
-    console.log(index)
     this.dispatch('toggle', index)
   }
-} 
+
+
+  destroy = (index) => {
+    this.dispatch('destroy', index)
+  };
+
+  toggleAll = (checked) => {
+    this.dispatch('toggleAll', checked)
+  };
+
+
+  clearCompleted = () => {
+    this.dispatch('clearCompleted')
+  }
+}

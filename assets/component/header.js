@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import PureRender from 'qm-pure-render';
+import {Relax} from 'iflux2'
+import {valueQL} from '../ql'
 const noop = () => {};
 
 
-@PureRender
+@Relax
 export default class Header extends Component {
   static defaultProps = {
-    value: '',
-    onChange: noop
+    value: valueQL,
+    submit: noop,
+    changeValue: noop
   };
 
   render() {
@@ -25,15 +27,13 @@ export default class Header extends Component {
   }
 
   _handleChange = (e) => {
-    this.props.onChange(e.target.value);
+    this.props.changeValue(e.target.value);
   };
 
 
   _handleKeyDown = (e) => {
-    console.log(e.keyCode);
-
     if (e.keyCode === 13) {
-      this.props.onSubmit();
+      this.props.submit();
     }
   };
 }
