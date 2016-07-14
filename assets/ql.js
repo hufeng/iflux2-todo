@@ -1,6 +1,5 @@
 import {QL, DQL} from 'iflux2'
 import {fromJS} from 'immutable'
-window.QL = QL
 
 
 /**
@@ -8,7 +7,7 @@ window.QL = QL
  */
 export const valueQL = QL('valueQL', [
   'value',
-  (value) => value
+  value => value
 ])
 
 
@@ -33,13 +32,14 @@ export const todoQL = QL('todoQL', [
  */
 export const countQL = QL('countQL', [
   todoQL,
-  (todoQL) => {
-    return todoQL.count()
-  }
+  todoQL => todoQL.count()
 ])
 
 
 
+/**
+ * 动态查询，运行期relax会自动替换$index
+ */
 export const todoDQL = DQL('todoDQL', [
   ['todo', '$index'],
   todo => todo || fromJS({})
