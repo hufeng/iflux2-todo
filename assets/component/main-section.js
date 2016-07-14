@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
 import {Relax} from 'iflux2'
-import {todoQL} from '../ql' 
+import {todoQL, todoDQL} from '../ql' 
 const noop = () => {}
 
 
 @Relax
 export default class MainSection extends Component {
   static defaultProps = {
+    index: 0,
     todo: todoQL,
+    todoDQL: todoDQL,
     toggle: noop,
     destroy: noop,
     toggleAll: noop
@@ -15,6 +17,7 @@ export default class MainSection extends Component {
 
   render() {
     const {toggle, toggleAll, destroy} = this.props
+    console.log('test dql:', this.props.todoDQL.toString());
 
     return (
       <section className="main">

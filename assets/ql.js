@@ -1,4 +1,5 @@
-import {QL} from 'iflux2'
+import {QL, DQL} from 'iflux2'
+import {fromJS} from 'immutable'
 window.QL = QL
 
 
@@ -32,5 +33,14 @@ export const todoQL = QL('todoQL', [
  */
 export const countQL = QL('countQL', [
   todoQL,
-  (todoQL) => todoQL.count()
+  (todoQL) => {
+    return todoQL.count()
+  }
+])
+
+
+
+export const todoDQL = DQL('todoDQL', [
+  ['todo', '$index'],
+  todo => todo || fromJS({})
 ])
