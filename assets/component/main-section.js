@@ -6,10 +6,13 @@ const noop = () => {}
 
 @Relax
 export default class MainSection extends Component {
+  /**
+   * All these props will be auto Dependency Inject by @Relax
+   */
   static defaultProps = {
-    index: 0,
+    index: 0,//假设是父组件传递的属性
     todo: todoQL,
-    todoDQL: todoDQL,
+    todoDQL: todoDQL, //会用index替换$index
     toggle: noop,
     destroy: noop,
     toggleAll: noop
@@ -17,6 +20,7 @@ export default class MainSection extends Component {
 
   render() {
     const {toggle, toggleAll, destroy} = this.props
+    //测试我们的dql
     console.log('test dql:', this.props.todoDQL.toString());
 
     return (

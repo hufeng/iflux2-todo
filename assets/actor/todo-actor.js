@@ -24,9 +24,7 @@ export default class TodoActor extends Actor {
 
   @Action('toggle')
   toggle(state, index) {
-    return state.updateIn(['todo', index, 'done'], (done) => {
-      return !done
-    })
+    return state.updateIn(['todo', index, 'done'], (done) => !done)
   }
 
 

@@ -16,6 +16,7 @@ export default class AppStore extends Store {
 
   constructor(props) {
     super(props)
+    //debug
     window._store = this;
   }
 

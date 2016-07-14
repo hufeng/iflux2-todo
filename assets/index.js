@@ -11,6 +11,7 @@ import './css/index.css'
 
 
 
+//debug: true, it will show good logs
 @StoreProvider(AppStore, {debug: true})
 export default class TodoApp extends Component {
   render() {
