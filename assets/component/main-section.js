@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Relax} from 'iflux2'
-import {todoQL, todoDQL} from '../ql' 
+import {todoQL, todoDQL} from '../ql'
 const noop = () => {}
 
 
@@ -21,11 +21,11 @@ export default class MainSection extends Component {
   render() {
     const {toggle, toggleAll, destroy} = this.props
     //测试我们的dql
-    console.log('test dql:', this.props.todoDQL.toString());
+    // console.log('test dql:', this.props.todoDQL.toString());
 
     return (
       <section className="main">
-        <input className="toggle-all" 
+        <input className="toggle-all"
                type="checkbox"
                onChange={(e) => toggleAll(e.target.checked)}/>
         <label htmlFor="toggle-all">Mark all as complete</label>
@@ -38,7 +38,7 @@ export default class MainSection extends Component {
                        checked={v.get('done')}
                        onChange={() => toggle(k)}/>
                 <label>{v.get('text')}</label>
-                <button className="destroy" 
+                <button className="destroy"
                         onClick={() => destroy(k)} />
               </div>
             </li>
