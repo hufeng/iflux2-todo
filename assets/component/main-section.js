@@ -21,7 +21,7 @@ export default class MainSection extends Component {
   render() {
     const {toggle, toggleAll, destroy} = this.props
     //测试我们的dql
-    // console.log('test dql:', this.props.todoDQL.toString());
+    console.log('test dql:', this.props.todoDQL.toString());
 
     return (
       <section className="main">

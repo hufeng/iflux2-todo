@@ -16,4 +16,9 @@ export default class TextActor extends Actor {
   submit(state) {
     return state.set('value', '')
   }
+
+  @Action('init')
+  init(state, {value}) {
+    return state.set('value', value)
+  }
 }

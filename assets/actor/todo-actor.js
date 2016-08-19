@@ -46,4 +46,9 @@ export default class TodoActor extends Actor {
       return todo.filter(v => !v.get('done'))
     })
   }
+
+  @Action('init')
+  init(state, {todo}) {
+    return state.set('todo', fromJS(todo))
+  }
 }

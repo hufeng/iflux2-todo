@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import Perf from 'react-addons-perf'
+
 import {render} from 'react-dom'
 import {StoreProvider} from 'iflux2'
 import AppStore from './store'
@@ -9,10 +11,12 @@ import Footer from './component/footer'
 import './css/base.css'
 import './css/index.css'
 
+window.Perf = Perf
+
 
 
 //debug: true, it will show good logs
-@StoreProvider(AppStore)
+@StoreProvider(AppStore, {debug: true})
 export default class TodoApp extends Component {
   render() {
     return (

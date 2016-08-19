@@ -52,7 +52,7 @@ export default class AppStore extends Store {
   };
 
 
-  clearCompleted = () => {
+  clearCompleted = async () => {
     this.dispatch('clearCompleted')
   }
 }
