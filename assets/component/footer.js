@@ -13,7 +13,7 @@ export default class Footer extends Component {
     count: countQL
   };
 
-   
+
   render() {
     const {changeFilter, filterStatus, count, clearCompleted} = this.props
     let countText = ''
