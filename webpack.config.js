@@ -4,7 +4,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
 
   entry: {
-    index: './assets/index.js'
+    index: './src/index.js'
   },
   output: {
     path: './build',
